@@ -1,4 +1,8 @@
-package org.example;
+package org.example.order;
+
+import org.example.order.AvailableStations;
+import org.example.order.Orders;
+import org.example.order.PageInfo;
 
 import java.util.List;
 

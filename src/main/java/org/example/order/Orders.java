@@ -1,7 +1,8 @@
-package org.example;
+package org.example.order;
 
-
-public class Order {
+public class Orders {
+    private Integer id;
+    private String courierId;
     private String firstName;
     private String lastName;
     private String address;
@@ -9,14 +10,19 @@ public class Order {
     private String phone;
     private Integer rentTime;
     private String deliveryDate;
-    private String comment;
+    private String track;
     private String[] color;
+    private String comment;
+    private String createdAt;
+    private String updatedAt;
+    private Integer status;
 
-
-    public Order() {
+    public Orders() {
     }
 
-    public Order(String firstName, String lastName, String address, String metroStation, String phone, Integer rentTime, String deliveryDate, String comment, String[] color) {
+    public Orders(Integer id, String courierId, String firstName, String lastName, String address, String metroStation, String phone, Integer rentTime, String deliveryDate, String track, String[] color, String comment, String createdAt, String updatedAt, Integer status) {
+        this.id = id;
+        this.courierId = courierId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -24,8 +30,28 @@ public class Order {
         this.phone = phone;
         this.rentTime = rentTime;
         this.deliveryDate = deliveryDate;
-        this.comment = comment;
+        this.track = track;
         this.color = color;
+        this.comment = comment;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.status = status;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCourierId() {
+        return courierId;
+    }
+
+    public void setCourierId(String courierId) {
+        this.courierId = courierId;
     }
 
     public String getFirstName() {
@@ -84,12 +110,12 @@ public class Order {
         this.deliveryDate = deliveryDate;
     }
 
-    public String getComment() {
-        return comment;
+    public String getTrack() {
+        return track;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setTrack(String track) {
+        this.track = track;
     }
 
     public String[] getColor() {
@@ -98,5 +124,37 @@ public class Order {
 
     public void setColor(String[] color) {
         this.color = color;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.order;
 
 public class AvailableStations {
     private String name;

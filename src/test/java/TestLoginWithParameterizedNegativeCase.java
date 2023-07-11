@@ -1,7 +1,7 @@
 import io.restassured.response.ValidatableResponse;
-import org.example.Checks;
-import org.example.Creds;
-import org.example.EndPoints;
+import org.example.courier.ChecksCourier;
+import org.example.courier.Creds;
+import org.example.courier.ApiCourier;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -14,8 +14,8 @@ public class TestLoginWithParameterizedNegativeCase {
         this.login = login;
         this.password = password;
     }
-    private final EndPoints endpoints = new EndPoints();
-    private final Checks check = new Checks();
+    private final ApiCourier endpoint = new ApiCourier();
+    private final ChecksCourier check = new ChecksCourier();
 
     @Parameterized.Parameters
     public static Object[][] getTestData(){
@@ -30,7 +30,7 @@ public class TestLoginWithParameterizedNegativeCase {
     @Test
     public void loginNotHaveAnyFields(){
         Creds creds = new Creds(login, password);
-        ValidatableResponse response = endpoints.logIn(creds);
+        ValidatableResponse response = endpoint.logIn(creds);
         check.loginNotHaveObligatoryField(response);
     }
 }

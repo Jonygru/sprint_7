@@ -1,28 +1,28 @@
 import io.restassured.response.ValidatableResponse;
-import org.example.*;
+import org.example.courier.*;
 import org.junit.Test;
 
 
 public class TestLogin {
     private final CourierGenerator generatorCorier = new CourierGenerator();
-    private final EndPoints endpoints = new EndPoints();
-    private final Checks check = new Checks();
+    private final ApiCourier endpoint = new ApiCourier();
+    private final ChecksCourier check = new ChecksCourier();
 
     Courier courier = generatorCorier.generic();
     Creds creds = Creds.from(courier);
     @Test
     public void loginSaccess(){
-        endpoints.createCourier(courier);
-        ValidatableResponse response = endpoints.logIn(creds);
+        endpoint.createCourier(courier);
+        ValidatableResponse response = endpoint.logIn(creds);
         Integer id = check.loginSuccess(response);
         assert id > 0;
-        endpoints.deleteCourier(id.toString()); // Удаляем нашего курьера
+        endpoint.deleteCourier(id.toString());
     }
 
     @Test
     public void loginNotRealCreeds(){
         Creds creds = new Creds("#@FDJFDS", "143124");
-        ValidatableResponse response = endpoints.logIn(creds);
+        ValidatableResponse response = endpoint.logIn(creds);
         check.loginNotRealCreds(response);
     }
 

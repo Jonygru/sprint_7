@@ -1,4 +1,4 @@
-package org.example;
+package org.example.order;
 
 public class PageInfo {
     private Integer page;

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.order;
 
 public class OrderNumber {
     private Integer track;
